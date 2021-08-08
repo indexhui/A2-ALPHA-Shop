@@ -91,6 +91,29 @@ html {
   --text: var(--gray-800);
   --theme: var(--pink);
   --theme-text: var(--black);
+  --theme-bg: #fff;
+  --theme-cart-bg: #fff;
+  --theme-cart-border: rgba(255, 255, 255, 20%);
+}
+
+html[data-theme="dark"] {
+  --white: #000;
+  --black: #fff;
+  --pink: #f67599;
+  --gray-900: #000000;
+  --gray-800: #2a2a2a;
+  --gray-700: #e6e6eb;
+  --gray-600: #999999;
+  --gray-500: #afb1bd;
+  --gray-400: #e6e6eb;
+  --gray-300: #f0f0f5;
+  --gray-200: #333;
+  --logo: var(--black);
+  --icon: var(--gray-200);
+  --text: var(--gray-300);
+  --theme-bg: #383838;
+  --theme-cart-bg: #383838;
+  --theme-cart-border: rgba(255, 255, 255, 20%);
 }
 
 :root {
@@ -167,6 +190,10 @@ html {
 
 .d-none {
   display: none;
+}
+
+.d-inline-block {
+  display: inline-block;
 }
 
 @media screen and (max-width: 60rem) {
@@ -397,7 +424,7 @@ html {
   display: block;
   width: 9999px;
   height: 2px;
-  background: var(--gray-900);
+  background: var(--text);
   content: "";
 }
 
@@ -444,6 +471,11 @@ html {
   position: relative;
   width: 100%;
   z-index: 0;
+  background-color: var(--theme-bg);
+}
+
+.form-item-select select {
+  color: #747474;
 }
 
 .form-item-select::after {
@@ -458,6 +490,10 @@ html {
   border-style: solid;
   border-width: 6px 5px 0 5px;
   border-color: var(--gray-700) transparent transparent transparent;
+}
+
+.form-item-input input {
+  background-color: var(--theme-bg);
 }
 
 .shipping-way {
@@ -543,6 +579,7 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   border: 2px solid var(--gray-400);
+  background-color: var(--theme-cart-bg);
   border-radius: 8px;
 }
 
@@ -592,6 +629,8 @@ html {
 
 .counter-num {
   width: 60px;
+  background-color: var(--theme-bg);
+  color: var(--text);
   text-align: center;
   -webkit-appearance: none;
   border: none;
@@ -655,7 +694,7 @@ html {
 
 .btn-primary {
   background: var(--pink);
-  color: var(--white);
+  color: #fff;
 }
 
 .btn-secondary {
@@ -761,12 +800,12 @@ body h1 {
 
 body h2 {
   font-size: 2rem;
-  color: var(--gray-800);
+  color: var(--text);
 }
 
 body h3 {
   font-size: 1.5rem;
-  color: var(--gray-800);
+  color: var(--text);
 }
 
 body a {
@@ -816,11 +855,12 @@ header .logo {
 .nav-btn {
   display: inline-block;
   padding: 0 12px;
+  cursor: pointer;
 }
 
 .lg-nav-item svg,
 .nav-btn svg {
-  fill: #2a2a2a;
+  fill: var(--text);
 }
 
 .lg-nav-item svg:hover,
@@ -834,10 +874,10 @@ header .logo {
   }
   body h2 {
     font-size: 1.5rem;
-    color: var(--gray-800);
   }
   body h3 {
     font-size: 1.25rem;
+    color: var(--text);
   }
   header {
     height: 56px;

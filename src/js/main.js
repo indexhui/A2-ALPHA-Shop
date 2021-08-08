@@ -1,3 +1,6 @@
+const theme = document.getElementById("theme-mode-toggle");
+const themeDark = document.getElementById("theme-mode-dark");
+const themeLight = document.getElementById("theme-mode-light");
 const form = document.getElementById("a-form");
 const formParts = form.querySelectorAll(".part");
 const stepControl = document.getElementById("step-control");
@@ -5,7 +8,6 @@ const steps = stepControl.querySelectorAll(".step");
 const btnControl = document.getElementById("btn-control");
 const nextBtn = btnControl.querySelector(".btn-next");
 const prevBtn = btnControl.querySelector(".btn-prev");
-
 const cartOrder = document.getElementById("cart-order");
 const amountTotal = document.getElementById("amount-total");
 const shippingFee = document.getElementById("shipping-fee");
@@ -111,3 +113,22 @@ function shippingTotal(e) {
 btnControl.addEventListener("click", handleBtnControlClicked);
 shippingFee.addEventListener("click", shippingTotal);
 cartOrder.addEventListener("click", purchaseTotal);
+
+themeDark.addEventListener("click", function () {
+  trans();
+  document.documentElement.setAttribute("data-theme", "dark");
+  themeDark.classList.add("d-none");
+  themeLight.classList.remove("d-none");
+});
+themeLight.addEventListener("click", function () {
+  trans();
+  document.documentElement.setAttribute("data-theme", "light");
+  themeDark.classList.remove("d-none");
+  themeLight.classList.add("d-none");
+});
+let trans = () => {
+  document.documentElement.classList.add("transition");
+  window.setTimeout(() => {
+    document.documentElement.classList.remove("transition");
+  }, 1000);
+};

@@ -67,6 +67,10 @@ $sizes: (
   display: none;
 }
 
+.d-inline-block {
+  display: inline-block;
+}
+
 //md(<54em) only
 
 @media screen and (max-width: $md) {

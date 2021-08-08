@@ -116,7 +116,7 @@
     display: block;
     width: 9999px;
     height: 2px;
-    background: var(--gray-900);
+    background: var(--text);
     content: "";
   }
   @media screen and (min-width: $md) {
@@ -157,6 +157,10 @@
   position: relative;
   width: 100%;
   z-index: 0;
+  select {
+    color: #747474;
+  }
+  background-color: var(--theme-bg);
   &::after {
     z-index: -2;
     pointer-events: none;
@@ -174,6 +178,7 @@
 .form-item-input {
   input {
     @extend %input-style;
+    background-color: var(--theme-bg);
   }
 }
 
@@ -240,6 +245,7 @@
   display: flex;
   flex-direction: column;
   border: 2px solid var(--gray-400);
+  background-color: var(--theme-cart-bg);
   border-radius: 8px;
 }
 
@@ -281,6 +287,8 @@
   }
   &-num {
     width: 60px;
+    background-color: var(--theme-bg);
+    color: var(--text);
     text-align: center;
     -webkit-appearance: none;
     border: none;
@@ -327,7 +335,7 @@
 
 .btn-primary {
   background: var(--pink);
-  color: var(--white);
+  color: #fff;
 }
 
 .btn-secondary {
