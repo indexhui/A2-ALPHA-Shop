@@ -1,5 +1,7 @@
-const themeDark = document.getElementById("theme-mode-dark");
-const themeLight = document.getElementById("theme-mode-light");
+const themeDark = document.getElementsByClassName("theme-mode-dark");
+const themeLight = document.getElementsByClassName("theme-mode-light");
+const themeDarkLg = document.getElementById("theme-mode-dark");
+const themeLightLg = document.getElementById("theme-mode-light");
 const form = document.getElementById("a-form");
 const formParts = form.querySelectorAll(".part");
 const stepControl = document.getElementById("step-control");
@@ -106,18 +108,49 @@ btnControl.addEventListener("click", handleBtnControlClicked);
 shippingFee.addEventListener("click", shippingTotal);
 cartOrder.addEventListener("click", purchaseTotal);
 
-themeDark.addEventListener("click", function () {
+for (var i = 0; i < themeDark.length; i++) {
+  themeDark[i].addEventListener("click", function () {
+    trans();
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeDark[i].classList.add("d-none");
+    themeLight[i].classList.remove("d-none");
+  });
+  themeLight[i].addEventListener("click", function () {
+    trans();
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeDark[i].classList.add("d-none");
+    themeLight[i].classList.remove("d-none");
+  });
+}
+
+themeDark[0].addEventListener("click", function () {
   trans();
   document.documentElement.setAttribute("data-theme", "dark");
-  themeDark.classList.add("d-none");
-  themeLight.classList.remove("d-none");
+  themeDark[0].classList.add("d-none");
+  themeLight[0].classList.remove("d-none");
 });
-themeLight.addEventListener("click", function () {
+
+themeLight[0].addEventListener("click", function () {
   trans();
   document.documentElement.setAttribute("data-theme", "light");
-  themeDark.classList.remove("d-none");
-  themeLight.classList.add("d-none");
+  themeDark[0].classList.remove("d-none");
+  themeLight[0].classList.add("d-none");
 });
+
+themeDarkLg.addEventListener("click", function () {
+  trans();
+  document.documentElement.setAttribute("data-theme", "dark");
+  themeLightLg.classList.remove("d-none");
+  themeDarkLg.classList.add("d-none");
+});
+
+themeLightLg.addEventListener("click", function () {
+  trans();
+  document.documentElement.setAttribute("data-theme", "light");
+  themeDarkLg.classList.remove("d-none");
+  themeLightLg.classList.add("d-none");
+});
+
 let trans = () => {
   document.documentElement.classList.add("transition");
   window.setTimeout(() => {
