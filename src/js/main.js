@@ -1,4 +1,3 @@
-const theme = document.getElementById("theme-mode-toggle");
 const themeDark = document.getElementById("theme-mode-dark");
 const themeLight = document.getElementById("theme-mode-light");
 const form = document.getElementById("a-form");
@@ -13,7 +12,6 @@ const amountTotal = document.getElementById("amount-total");
 const shippingFee = document.getElementById("shipping-fee");
 const chargetype = document.getElementById("charge-type");
 const commonFee = shippingFee.firstElementChild.lastElementChild;
-console.log(commonFee);
 const dhlFee = shippingFee.lastElementChild.lastElementChild;
 
 let step = 0; //計算步驟0 1 2
@@ -45,10 +43,9 @@ function purchaseTotal(e) {
 }
 
 function handleBtnControlClicked(e) {
-  e.preventDefault(); //停止事件的默認動作
+  e.preventDefault();
   const nowStep = steps[step];
   if (e.target.matches(".btn-next")) {
-    console.log("next");
     if (step === 2) {
       return;
     }
@@ -56,14 +53,10 @@ function handleBtnControlClicked(e) {
     nowStep.classList.remove("steps-item-process");
     nowStep.classList.add("steps-item-done");
     nextStep.classList.add("steps-item-process");
-    console.log(step);
-    console.log(formParts[step]);
-    console.log(formParts[step + 1]);
     formParts[step].classList.toggle("d-none");
     formParts[step + 1].classList.toggle("d-none");
     step += 1;
   } else if (e.target.matches(".btn-prev")) {
-    console.log("回到過去");
     const prevStep = steps[step - 1];
     nowStep.classList.remove("steps-item-process");
     prevStep.classList.remove("steps-item-done");
@@ -99,7 +92,6 @@ function shippingTotal(e) {
     if (e.target.matches(".mark2")) {
       total += 500;
       type = "$500";
-      console.log("mark2");
       dhlFee.classList.remove("mark2");
       commonFee.classList.add("mark");
     } else {
