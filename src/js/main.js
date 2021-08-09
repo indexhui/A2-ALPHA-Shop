@@ -108,43 +108,28 @@ btnControl.addEventListener("click", handleBtnControlClicked);
 shippingFee.addEventListener("click", shippingTotal);
 cartOrder.addEventListener("click", purchaseTotal);
 
-for (var i = 0; i < themeDark.length; i++) {
-  themeDark[i].addEventListener("click", function () {
-    trans();
-    document.documentElement.setAttribute("data-theme", "dark");
-    themeDark[i].classList.add("d-none");
-    themeLight[i].classList.remove("d-none");
-  });
-  themeLight[i].addEventListener("click", function () {
-    trans();
-    document.documentElement.setAttribute("data-theme", "dark");
-    themeDark[i].classList.add("d-none");
-    themeLight[i].classList.remove("d-none");
-  });
-}
-
-themeDark[0].addEventListener("click", function () {
+themeDark[0].addEventListener("click", () => {
   trans();
   document.documentElement.setAttribute("data-theme", "dark");
   themeDark[0].classList.add("d-none");
   themeLight[0].classList.remove("d-none");
 });
 
-themeLight[0].addEventListener("click", function () {
+themeLight[0].addEventListener("click", () => {
   trans();
   document.documentElement.setAttribute("data-theme", "light");
   themeDark[0].classList.remove("d-none");
   themeLight[0].classList.add("d-none");
 });
 
-themeDarkLg.addEventListener("click", function () {
+themeDarkLg.addEventListener("click", () => {
   trans();
   document.documentElement.setAttribute("data-theme", "dark");
   themeLightLg.classList.remove("d-none");
   themeDarkLg.classList.add("d-none");
 });
 
-themeLightLg.addEventListener("click", function () {
+themeLightLg.addEventListener("click", () => {
   trans();
   document.documentElement.setAttribute("data-theme", "light");
   themeDarkLg.classList.remove("d-none");
