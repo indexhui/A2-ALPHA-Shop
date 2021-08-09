@@ -12,7 +12,7 @@ const prevBtn = btnControl.querySelector(".btn-prev");
 const cartOrder = document.getElementById("cart-order");
 const amountTotal = document.getElementById("amount-total");
 const shippingFee = document.getElementById("shipping-fee");
-const chargetype = document.getElementById("charge-type");
+const chargeType = document.getElementById("charge-type");
 const commonFee = shippingFee.firstElementChild.lastElementChild;
 const dhlFee = shippingFee.lastElementChild.lastElementChild;
 
@@ -100,7 +100,7 @@ function shippingTotal(e) {
       total += 0;
     }
   }
-  chargetype.innerText = type;
+  chargeType.innerText = type;
   amountTotal.innerHTML = "$ " + new Intl.NumberFormat().format(total);
 }
 
